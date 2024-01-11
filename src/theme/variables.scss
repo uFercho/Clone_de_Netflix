@@ -52,12 +52,12 @@
   --ion-color-danger-tint: #ed576b;
 
   /** dark **/
-  --ion-color-dark: #222428;
-  --ion-color-dark-rgb: 34, 36, 40;
-  --ion-color-dark-contrast: #ffffff;
-  --ion-color-dark-contrast-rgb: 255, 255, 255;
-  --ion-color-dark-shade: #1e2023;
-  --ion-color-dark-tint: #383a3e;
+	--ion-color-dark: #000;
+	--ion-color-dark-rgb: 0,0,0;
+	--ion-color-dark-contrast: #fff;
+	--ion-color-dark-contrast-rgb: 255,255,255;
+	--ion-color-dark-shade: #000000;
+	--ion-color-dark-tint: #1a1a1a;
 
   /** medium **/
   --ion-color-medium: #92949c;
@@ -68,12 +68,12 @@
   --ion-color-medium-tint: #9d9fa6;
 
   /** light **/
-  --ion-color-light: #f4f5f8;
-  --ion-color-light-rgb: 244, 245, 248;
-  --ion-color-light-contrast: #000000;
-  --ion-color-light-contrast-rgb: 0, 0, 0;
-  --ion-color-light-shade: #d7d8da;
-  --ion-color-light-tint: #f5f6f9;
+	--ion-color-light: #fff;
+	--ion-color-light-rgb: 255,255,255;
+	--ion-color-light-contrast: #8f8f8f;
+	--ion-color-light-contrast-rgb: 143, 143, 143;
+	--ion-color-light-shade: #e0e0e0;
+	--ion-color-light-tint: #ffffff;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -236,7 +236,7 @@
 }
 
 html {
-  /* 
+  /*
    * For more information on dynamic font scaling, visit the documentation:
    * https://ionicframework.com/docs/layout/dynamic-font-scaling
    */

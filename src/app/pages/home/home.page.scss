@@ -1,0 +1,27 @@
+ion-content {
+  --offset-top:0px !important;
+  position: absolute;
+}
+
+.spotlight {
+  width: 100%;
+  height: 50vh;
+  background-position: center;
+  background-size: cover;
+  margin-bottom: 20px;
+  position: relative;
+
+  .gradient {
+    background: linear-gradient(#ffffff00 40%, #000000c2, #000 95%);
+    width: 100%;
+    height: 100%;
+  }
+
+  .info {
+    width: 100%;
+    position: absolute;
+    bottom: 10px;
+    text-align: center;
+  }
+}
+

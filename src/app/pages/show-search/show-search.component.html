@@ -1,0 +1,37 @@
+<shared-header title="Buscador"></shared-header>
+
+<ion-content class="ion-no-padding">
+  <ion-row class="ion-align-items-center">
+    <ion-col size="12" >
+      <ion-searchbar
+        [formControl]="searchBox"
+        [debounce]="1000"
+        (ionInput)="handleInput($event)"
+        color="light">
+      </ion-searchbar>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    @for (show of shows(); track $index) {
+      <ion-col size="4" class="ion-no-padding">
+        <ion-card (click)="onShowInfo( show.id )">
+          <img [alt]="show.name" [src]="show.image.original"/>
+          <ion-card-header>
+            <ion-card-subtitle color="light"> {{ show.name }} </ion-card-subtitle>
+          </ion-card-header>
+
+          <ion-card-content>
+            <shared-star-rating [rating]="9"></shared-star-rating>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    } @empty {
+      <div class="searchBox-help">
+        <span>Escribe que Show quieres buscar</span>
+        <ion-icon name="happy-outline" size="large"></ion-icon>
+      </div>
+    }
+  </ion-row>
+
+</ion-content>

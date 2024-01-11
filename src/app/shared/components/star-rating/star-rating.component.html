@@ -1,0 +1,8 @@
+<div class="star-rating">
+  @for (star of stars; track $index) {
+    <ion-icon name="star" size="small"></ion-icon>
+  }
+  @if (rating % 1 !== 0) {
+    <ion-icon name="star-half" size="small"></ion-icon>
+  }
+</div>

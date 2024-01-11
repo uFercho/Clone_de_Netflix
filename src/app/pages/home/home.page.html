@@ -1,0 +1,42 @@
+<shared-header title="TV Show"></shared-header>
+
+<ion-content [fullscreen]="true">
+
+
+  @if (showService.loading()) {
+    <h3>Espere porfavor</h3>
+  }  @else {onShowInfo(show.id)
+
+    <div class="spotlight"
+         [style.background-image]="'url('+ randomTop().image.original +')'"
+         (click)="onShowInfo( randomTop().id )"
+    >
+
+      <div class="gradient"></div>
+
+      <div class="info">
+        <h1 class="title"> {{ randomTop().name }} </h1>
+        <shared-star-rating [rating]=" randomTop().rating.average ?? 0"></shared-star-rating>
+      </div>
+
+    </div>
+
+    <shared-show-swiper [title]="'Mejores Valoradas'" [shows]="top()"></shared-show-swiper>
+
+    <shared-show-swiper [title]="'Últimos lanzamientos'" [shows]="newReleases()"></shared-show-swiper>
+
+    <shared-show-swiper [title]="'Drama'" [shows]="drama()"></shared-show-swiper>
+
+    <shared-show-swiper [title]="'Comedia'" [shows]="comedy()"></shared-show-swiper>
+
+    <shared-show-swiper [title]="'Deportes'" [shows]="sports()"></shared-show-swiper>
+
+    <shared-show-swiper [title]="'Documentales'" [shows]="documentary()"></shared-show-swiper>
+
+    <shared-show-swiper [title]="'Anime'" [shows]="anime()"></shared-show-swiper>
+
+    <shared-show-swiper [title]="'Ciencia ficción'" [shows]="scienceFiction()"></shared-show-swiper>
+
+  }
+
+</ion-content>

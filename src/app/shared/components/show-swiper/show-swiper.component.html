@@ -1,0 +1,30 @@
+<ion-row>
+  <ion-col>
+    <h6>{{title}}</h6>
+  </ion-col>
+</ion-row>
+
+<swiper-container
+  #swiper
+  class="mySwiper"
+  space-between="5"
+  slides-per-view="3"
+>
+  @for (show of shows; track show.id) {
+    <swiper-slide
+      (click)="onShowInfo(show.id)"
+    >
+      <ion-card>
+        <img [alt]="show.name" [src]="show.image.original"/>
+        <ion-card-header>
+          <!-- <ion-card-title> {{ show.name }} </ion-card-title> -->
+          <ion-card-subtitle> {{ show.name }} </ion-card-subtitle>
+        </ion-card-header>
+
+        <ion-card-content>
+          <shared-star-rating [rating]="show.rating.average ?? 0"></shared-star-rating>
+        </ion-card-content>
+      </ion-card>
+    </swiper-slide>
+  }
+</swiper-container>

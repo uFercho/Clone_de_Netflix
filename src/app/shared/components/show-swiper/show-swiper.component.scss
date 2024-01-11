@@ -1,0 +1,57 @@
+
+
+swiper-container {
+  width: 100%;
+  height: 285px;
+}
+
+swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+ion-card {
+  --background: #000;
+  --color: #9efff0;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+ion-card-header {
+  padding-top: 10px !important;
+  padding-bottom:  0 !important;
+  padding-inline: 5px !important;
+}
+
+ion-card-content {
+  padding-bottom:  0 !important;
+  padding-inline: 5px !important;
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+ion-card-title {
+  --color: #52ffe4;
+}
+
+ion-card-subtitle {
+  --color: #d1fff8;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

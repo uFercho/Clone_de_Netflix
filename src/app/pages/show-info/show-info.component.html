@@ -1,0 +1,104 @@
+<shared-header [backButton]="utilsService.getBackUrl" [title]="show?.name ?? ''"></shared-header>
+
+<ion-content >
+
+  <ion-row>
+    <ion-col size="6">
+      <ion-img [src]="show?.image?.original"></ion-img>
+    </ion-col>
+    <ion-col size="6">
+      <ion-list lines="none">
+        <ion-item>
+          <ion-label> Duración: {{ show?.runtime }} min </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label> {{ show?.premiered | date }} </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label> Episodios: {{ show?._embedded?.episodes?.length }} </ion-label>
+        </ion-item>
+        <ion-item>
+          <shared-star-rating [rating]="show?.rating?.average ?? 0"></shared-star-rating>
+        </ion-item>
+      </ion-list>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col size="12" class="ion-padding">
+
+      <ion-accordion-group >
+        <ion-accordion value="info">
+          <ion-item slot="header" color="medium">
+            <ion-label>Información</ion-label>
+          </ion-item>
+          <div class="ion-padding" slot="content">
+            <ion-card color="light">
+              <ion-card-header>
+                <ion-card-title>{{ show?.name }}</ion-card-title>
+              </ion-card-header>
+
+              <ion-card-content>
+                <p [innerHTML]="show?.summary"></p>
+              </ion-card-content>
+            </ion-card>
+          </div>
+        </ion-accordion>
+        <ion-accordion value="episodes">
+          <ion-item slot="header" color="medium">
+            <ion-label>Episodios</ion-label>
+          </ion-item>
+          <div class="ion-padding" slot="content">
+            <ion-list>
+              <ion-item >
+                <ion-select label="Temporadas" placeholder="Temporada 1" interface="popover" (ionChange)="handleChange($event)">
+                  @for (season of seasons(); track $index) {
+                    <ion-select-option [value]="season">Temporada {{ season }} </ion-select-option>
+                  }
+                </ion-select>
+              </ion-item>
+            </ion-list>
+            <ion-list>
+              @for (episode of episodesOnSeason(); track $index) {
+                <ion-item>
+                  <ion-card color="light">
+                    <img [alt]="episode.name" [src]="episode.image.original" />
+                    <ion-card-header>
+                      <ion-card-subtitle>
+                        {{ episode.number }} - {{ episode.name }} - {{ episode.runtime }} min
+                      </ion-card-subtitle>
+                    </ion-card-header>
+
+                    <ion-card-content>
+                      <shared-star-rating [rating]="episode.rating.average ?? 0"></shared-star-rating>
+                      <p [innerHTML]="episode.summary"></p>
+                    </ion-card-content>
+                  </ion-card>
+                </ion-item>
+              }
+            </ion-list>
+          </div>
+        </ion-accordion>
+        <ion-accordion value="cast">
+          <ion-item slot="header" color="medium">
+            <ion-label>Elenco</ion-label>
+          </ion-item>
+          <div class="ion-padding" slot="content">
+            <ion-list>
+              @for (cast of show?._embedded?.cast; track $index) {
+                <ion-item>
+                  <ion-avatar aria-hidden="true" slot="start">
+                    <img [alt]="cast.person.name" [src]="cast.person.image?.original" />
+                  </ion-avatar>
+                  <ion-label> <strong>{{ cast.person.name }}</strong> - {{ cast.character.name }} </ion-label>
+                </ion-item>
+              }
+            </ion-list>
+          </div>
+        </ion-accordion>
+      </ion-accordion-group>
+
+    </ion-col>
+  </ion-row>
+
+</ion-content>
