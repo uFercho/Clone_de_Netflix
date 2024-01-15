@@ -1,8 +1,7 @@
 import { Component, OnInit, computed, inject, signal } from '@angular/core';
 import { ShowService } from '../services/show.service';
-import { Show, StateShowByQuery } from '../interfaces/show';
+import { StateShowByQuery } from '../interfaces/show';
 import { FormControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { UtilsService } from 'src/app/shared/services/utils.service';
 
 @Component({

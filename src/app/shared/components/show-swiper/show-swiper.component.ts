@@ -3,7 +3,7 @@ import { AfterViewInit, Component, Input, OnInit, inject } from '@angular/core';
 import { register } from 'swiper/element/bundle'
 
 import { SmallShow } from 'src/app/pages/interfaces/show';
-import { Router } from '@angular/router';
+import { UtilsService } from '../../services/utils.service';
 
 @Component({
   selector: 'shared-show-swiper',
@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class ShowSwiperComponent  implements OnInit, AfterViewInit {
 
-  private router = inject(Router);
+  public utilsService = inject( UtilsService );
 
   @Input({ required: true }) title!: string;
   @Input({ required: true }) shows!: SmallShow[];
@@ -27,9 +27,8 @@ export class ShowSwiperComponent  implements OnInit, AfterViewInit {
   }
 
   onShowInfo( id: number ) {
-    console.log('🚀 | ShowSwiperComponent | onShowInfo | id:', id)
-    this.router.navigate([`main/show/${id}`]);
-    //this.router.navigateByUrl(`show/${id}`);
+    this.utilsService.setBackUrl = '/main/home';
+    this.utilsService.routerLink(`main/show/${id}`);
   }
 
 }

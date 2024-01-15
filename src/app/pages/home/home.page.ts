@@ -1,8 +1,7 @@
-import { Component, Input, OnDestroy, OnInit, computed, inject } from '@angular/core';
+import { Component, OnDestroy, OnInit, computed, inject } from '@angular/core';
 
 import { ShowService } from '../services/show.service';
 import { ShowGenre, ShowType, SmallShow } from '../interfaces/show';
-import { Router } from '@angular/router';
 import { UtilsService } from 'src/app/shared/services/utils.service';
 
 @Component({
@@ -21,7 +20,7 @@ export class HomePage implements OnInit, OnDestroy {
     .sort( (a, b) => {
       const fechaA = new Date(a.premiered).getTime();
       const fechaB = new Date(b.premiered).getTime();
-      return fechaB - fechaA;//fechaB.toLocaleString().localeCompare(fechaA.toLocaleString());
+      return fechaB - fechaA;
     }).slice(0, this.showNum) );
 
   public top = computed<SmallShow[]>( () => this.showService.shows()
